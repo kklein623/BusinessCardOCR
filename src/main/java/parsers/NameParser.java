@@ -31,6 +31,7 @@ public class NameParser {
 		inputStream.close();
 		
 		NameFinderME nameFinder = new NameFinderME(model);
+		//End of Apache OpenNLP Initializing Code
 		
 		String name = "";
 		
@@ -49,11 +50,32 @@ public class NameParser {
 				if (s.getEnd() - s.getStart() >= 2) {
 					for (int i = s.getStart(); i < s.getEnd(); i++) 
 						name += words[i] + " ";
-					return name;
+					return name.trim();
 				}
 			}			
 		}
 		
-		return "No name detected";
+		return "None";
+	}
+	
+	public static String getNameLine(String line, NameFinderME nameFinder) throws IOException {	
+		String name = "";
+			
+		//We then split on spaces because the OpenNLP NameFinder relies on a StringArray
+		String[] words = line.split(" ");
+		Span nameSpans[] = nameFinder.find(words);
+		
+		for(Span s : nameSpans) {
+			//Length two is used because having two or more found names next to each usually designates an actual name
+			//There are instances where a name could be in the company, like a law firm, but they're usually separated by commas or it's just a last name
+			//We could also go by returning the longest word instance, but that could return as a street name
+			if (s.getEnd() - s.getStart() >= 2) {
+				for (int i = s.getStart(); i < s.getEnd(); i++) 
+					name += words[i] + " ";
+				return name.trim();
+			}
+		}
+		
+		return "None";
 	}
 }

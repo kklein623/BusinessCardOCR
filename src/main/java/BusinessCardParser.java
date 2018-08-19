@@ -1,6 +1,10 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
+import opennlp.tools.namefind.NameFinderME;
+import opennlp.tools.namefind.TokenNameFinderModel;
 import parsers.*;
 
 public class BusinessCardParser {
@@ -8,7 +12,7 @@ public class BusinessCardParser {
 	public static ContactInfo getContactInfo(String document) throws IOException {
 		ContactInfo contactInfo = new ContactInfo();
 		contactInfo.setEmailAddress(EmailAddressParser.getEmail(document));
-		contactInfo.setPhoneNumber(PhoneNumberParser.getFirstPhoneNumber(document));
+		contactInfo.setPhoneNumber(PhoneNumberParser.getOfficePhoneNumber(document));
 		contactInfo.setName(NameParser.getName(document));
 		return contactInfo;
 	}

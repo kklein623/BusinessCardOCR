@@ -1,9 +1,9 @@
 
 public class ContactInfo {
 	
-	private String name = "No name listed";
-	private String phoneNumber = "No phone listed";
-	private String emailAddress = "No email listed";
+	private String name = "None";
+	private String phoneNumber = "None";
+	private String emailAddress = "None";
 
 	public String getName() {
 		return name;

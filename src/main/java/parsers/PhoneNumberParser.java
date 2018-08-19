@@ -21,7 +21,7 @@ public class PhoneNumberParser {
 		while (matcher.find()) {
 			return matcher.group().replaceAll("[\\+\\- \\.\\(\\)]", "");
 		}
-		return "No phone listed";
+		return "None";
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class PhoneNumberParser {
 		if (cell.length() > 0) return cell;
 		if (fax.length() > 0) return fax;
 		
-		return "No phone listed";
+		return "None";
 	}
 	
 }
