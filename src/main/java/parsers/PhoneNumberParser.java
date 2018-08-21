@@ -3,6 +3,11 @@ package parsers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Used by the BusinessCardParser to parse out any phone numbers present
+ * @author Kevin
+ *
+ */
 public class PhoneNumberParser {
 	
 	//Phone Number Regular Expression. Will only match standard formatted phone numbers and nothing with letters as numbers

@@ -3,6 +3,11 @@ package parsers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Used by the BusinessCardParser to parse out any email present
+ * @author Kevin
+ *
+ */
 public class EmailAddressParser {
 
 	//Email Regular Expression. Only does simple emails. It won't capture anything with comments or quotes

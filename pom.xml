@@ -18,4 +18,35 @@
 		<scope>test</scope>
 	</dependency>
   </dependencies>
+  <build>
+      <plugins>
+	      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+    		<configuration>
+        		<transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>BusinessCardParserCli</mainClass>
+                </transformer>
+              </transformers>
+    		</configuration>
+            <version>3.1.1</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <minimizeJar>true</minimizeJar>
+                        <createDependencyReducedPom>true</createDependencyReducedPom>
+                        <dependencyReducedPomLocation>
+                            ${java.io.tmpdir}/dependency-reduced-pom.xml
+                        </dependencyReducedPomLocation>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+        </build>
 </project>

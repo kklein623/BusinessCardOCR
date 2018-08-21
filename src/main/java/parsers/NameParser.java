@@ -1,6 +1,5 @@
 package parsers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -8,6 +7,11 @@ import opennlp.tools.namefind.NameFinderME;
 import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.Span;
 
+/**
+ * Parser classed used by the BusinessCardParser to help parse out key information in a business card
+ * @author Kevin
+ *
+ */
 public class NameParser {
 	
 	/**
@@ -24,7 +28,7 @@ public class NameParser {
 		//Apache OpenNLP Initializing Code
 		
 		//Grabs the model that contains the trained name finder data. It is possible to swap out or create a custom one
-		InputStream inputStream = new FileInputStream("src/main/resources/en-ner-person.bin");
+		InputStream inputStream = NameParser.class.getClass().getResourceAsStream("/en-ner-person.bin");
 		
 		TokenNameFinderModel model = new TokenNameFinderModel(inputStream);
 		

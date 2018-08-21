@@ -1,8 +1,20 @@
 import java.io.IOException;
+
 import parsers.*;
 
+/**
+ * Used to parse out the results of an optical character recognition (OCR) component for a business card reader
+ * @author Kevin
+ *
+ */
 public class BusinessCardParser {
 	
+	/**
+	 * Parsed out a given string that's a business card
+	 * @param document The business card text
+	 * @return a ContactInfo object that contains the name, email, and phone number listed on the card if any
+	 * @throws IOException Only if the en-ner-person.bin file is missing for the NameParser
+	 */
 	public static ContactInfo getContactInfo(String document) throws IOException {
 		ContactInfo contactInfo = new ContactInfo();
 		contactInfo.setEmailAddress(EmailAddressParser.getEmail(document));
