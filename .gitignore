@@ -1,5 +1,5 @@
 .classpath
 .project
 .settings/
-target/
-!/target/business-card-ocr-0.0.1.jar
+target/*
+!target/business-card-ocr-0.0.1.jar
