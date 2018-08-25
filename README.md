@@ -2,7 +2,7 @@
 
 ## Running
 
-To run the cli, run **java -jar business-card-ocr-0.0.1.jar** in a command line interface at the same directory level as the jar. Make sure your JRE is up to date.
+To run the cli, run **java -jar business-card-ocr-0.0.1.jar** in a command line interface at the same directory level as the jar. The jar is located under the target directory. Make sure your JRE is up to date.
 
 ## How to Use
 
