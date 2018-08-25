@@ -1,9 +1,5 @@
 # BusinessCardOcr
 
-## Installation
-
-Simply download the files or clone from the repository and open the files in "src" to view the source code. To build the jar, from the root folder (where the pom.xml file is), run "mvn clean install" to build the jar. It should be called "business-card-ocr-0.0.1.jar" and located in the target folder when finished.
-
 ## Running
 
 To run the cli, run "java -jar business-card-ocr-0.0.1.jar" in a command line interface at the same directory level as the jar. Make sure your JRE is up to date.
