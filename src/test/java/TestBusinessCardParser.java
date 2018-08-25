@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestBusinessCardParser {
@@ -45,11 +46,18 @@ public class TestBusinessCardParser {
 											+ "New York: 203.905.4530\n"
 											+ "www.hklaw.com";
 	
+	private static BusinessCardParser businessCardParser;
+	
 	private void TestSample(String name, String number, String email, String sample) throws IOException {
-		ContactInfo ci = BusinessCardParser.getContactInfo(sample);
+		ContactInfo ci = businessCardParser.getContactInfo(sample);
 		assertEquals(name, ci.getName());
 		assertEquals(number, ci.getPhoneNumber());
 		assertEquals(email, ci.getEmailAddress());
+	}
+	
+	@BeforeClass
+	public static void setUp() throws IOException {
+		businessCardParser = new BusinessCardParser();
 	}
 
 	@Test

@@ -15,11 +15,18 @@ public class BusinessCardParser {
 	 * @return a ContactInfo object that contains the name, email, and phone number listed on the card if any
 	 * @throws IOException Only if the en-ner-person.bin file is missing for the NameParser
 	 */
-	public static ContactInfo getContactInfo(String document) throws IOException {
+	
+	NameParser nameParser;
+	
+	public BusinessCardParser() throws IOException {
+		this.nameParser = new NameParser();
+	}
+	
+	public ContactInfo getContactInfo(String document) {
 		ContactInfo contactInfo = new ContactInfo();
 		contactInfo.setEmailAddress(EmailAddressParser.getEmail(document));
 		contactInfo.setPhoneNumber(PhoneNumberParser.getOfficePhoneNumber(document));
-		contactInfo.setName(NameParser.getName(document));
+		contactInfo.setName(nameParser.getName(document));
 		return contactInfo;
 	}
 

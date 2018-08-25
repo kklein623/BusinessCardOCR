@@ -2,3 +2,4 @@
 .project
 .settings/
 target/
+!/target/business-card-ocr-0.0.1.jar

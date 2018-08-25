@@ -23,18 +23,23 @@ public class NameParser {
 	 * @throws IOException
 	 */
 	
-	public static String getName(String document) throws IOException {
-		
+	NameFinderME nameFinder;
+	
+	public NameParser() throws IOException {
 		//Apache OpenNLP Initializing Code
 		
 		//Grabs the model that contains the trained name finder data. It is possible to swap out or create a custom one
 		InputStream inputStream = NameParser.class.getClass().getResourceAsStream("/en-ner-person.bin");
-		
+				
 		TokenNameFinderModel model = new TokenNameFinderModel(inputStream);
 		
 		inputStream.close();
+				
+		this.nameFinder = new NameFinderME(model);
+	}
+	
+	public String getName(String document) {		
 		
-		NameFinderME nameFinder = new NameFinderME(model);
 		//End of Apache OpenNLP Initializing Code
 		
 		String name = "";

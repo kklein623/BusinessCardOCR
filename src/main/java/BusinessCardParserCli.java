@@ -5,6 +5,8 @@ public class BusinessCardParserCli {
 
 	public static void main(String[] args) throws IOException {
 		
+		BusinessCardParser businessCardParser = new BusinessCardParser();
+		
 		boolean inputMode = false;
 		String input = "";
 		
@@ -23,7 +25,7 @@ public class BusinessCardParserCli {
 				if (command.equals("")){
 					inputMode = false;
 					System.out.println("Out of Input Mode");
-					ContactInfo temp = BusinessCardParser.getContactInfo(input);
+					ContactInfo temp = businessCardParser.getContactInfo(input);
 					System.out.println(temp.printContactInfo());
 					input = "";
 				}
